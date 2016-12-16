@@ -1,0 +1,23 @@
+<div id='shit'>
+<h1>Listing Products</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Category</th>
+    <th>Options</th>
+  </tr>
+  <%@products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.pricing %></td>
+    <td><%= product.category.name %></td>
+    <th><a href='/products/<%= product.id %>'>Show</a> | <a href='/products/<%= product.id%>/edit'>Edit</a> | <a href='/products/<%=product.id%>'data-method='delete'>Delete</a></th>
+  </tr>
+  <% end %>​
+</table>
+
+<a href= '/products/new'>New Product</a>
+</div>

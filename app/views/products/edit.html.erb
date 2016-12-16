@@ -1,0 +1,16 @@
+<h1>Editing <%=@product.name%></h1>
+<form action="/products/<%=@product.id%>" method='post'>
+  <input type='hidden' name='_method' value='patch'>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  Name <input type ='text' name='name' value='<%=@product.name%>'>
+  Description <input type ='text' name='description' value='<%=@product.description%>'>
+  Price <input type='text' name='pricing' value='<%=@product.pricing%>'>
+  Category: <select name='id'>
+    <%= options_from_collection_for_select(@categories, 'id', 'name', params[:category_id].to_i) %>
+  </select>
+
+  <input type='submit' name='Update'>
+</form>
+
+
+<a href='/products/<%=@product.id %>'>Show</a> | <a href='/products'>Back</a>
